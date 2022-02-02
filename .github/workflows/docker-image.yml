@@ -1,13 +1,10 @@
 name: Docker Image CI
 
-on: [push, pull_request]
-#on:
-#  push:
-#    branches: [ master ]
-#    tags:
-#      - "v*"
-#  pull_request:
-#    branches: [ master ]
+on:
+  push:
+    branches: [ master ]
+    tags:
+      - "v*"
 
 env:
   DOCKER_SERVER_HOST: docker.io
@@ -17,22 +14,15 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-#    steps:
-#    - uses: actions/checkout@v2
-#
-#    - name: Build the Docker base image
-#      run: docker build . --file Dockerfile --tag ${{ env.DOCKER_SERVER_HOST }}:$(date +%s)
-
     steps:
       # Check out code
       - name: Checkout
         uses: actions/checkout@v2
         with:
           submodules: recursive
-      - name: DockerTag
-        id: docker-tag
-        uses: yuya-takeyama/docker-tag-from-github-ref-action@v1
+#      - name: DockerTag
+#        id: docker-tag
+#        uses: yuya-takeyama/docker-tag-from-github-ref-action@v1
 
 #      - name: Set up Docker Buildx
 #        uses: docker/setup-buildx-action@v1
@@ -45,3 +35,8 @@ jobs:
 
       - name: Build base image
         run: bash .pipelines/build_images.sh
+
+      - name: Push image
+        run: bash .pipelines/push_images.sh
+
+
