@@ -6,7 +6,7 @@
 function push_image() {
     echo "$(tput bold)$(tput setb 4)$(tput setaf 3)$1$(tput sgr0)"
     IMAGE=$2
-    if [ "${DOCKER_PUSH_TO_REGISTRY}" == "master" ]; then
+    if [ "${DOCKER_PUSH_TO_REGISTRY}" == true ]; then
       echo "docker push ${IMAGE}"
     else
       echo "[PUSH] - skip this step for image ${IMAGE}"
