@@ -1,12 +1,13 @@
 name: Docker Image CI
 
-on:
-  push:
-    branches: [ master ]
-    tags:
-      - "v*"
-  pull_request:
-    branches: [ master ]
+on: [push, pull_request]
+#on:
+#  push:
+#    branches: [ master ]
+#    tags:
+#      - "v*"
+#  pull_request:
+#    branches: [ master ]
 
 env:
   DOCKER_SERVER_HOST: docker.io
