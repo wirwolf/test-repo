@@ -2,6 +2,7 @@
 echo "---------------------------------------"
 set
 echo "---------------------------------------"
+sleep 2
 set -exu
 DOCKER_IMAGE_VERSION=$(echo ${GITHUB_REF} | sed -e "s/refs\/heads\///g")
 
