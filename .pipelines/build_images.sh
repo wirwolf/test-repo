@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "---------------------------------------"
-set
+printenv | grep GITHUB_REF
 echo "---------------------------------------"
 sleep 2
 set -exu
