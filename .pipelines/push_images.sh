@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-. .pipelines/vars_from_github_action.sh
+. .pipelines/build_images.sh
 
 ################### APP IMAGES ###################
 
